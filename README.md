@@ -13,7 +13,7 @@ UniAuth is a Flutter package designed to handle authentication modules in Flutte
 
 ## Getting Started
 
-To use UniAuth in your Flutter project, follow these steps:
+to use UniAuth in your Flutter project, follow these steps:
 
 ### Installation
 
@@ -51,34 +51,38 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 ```
+
 #### Some Methods
 
 #### Create User With Email and Password
+
 ```dart
  await UniAuthService.createUserWithEmail(
         authData: AuthData(
-          email: 'bodeahmed@gmail.com',
-          password: '123456',
+          email: 'YOUR_EMAIL',
+          password: 'YOUR_PASSWORD',
         ),
       );
 ```
 
 #### Check User LoggedIn or Not
+
 ```dart
 UniAuthService.checkUserLoggedIn;
 ```
 
 #### Send and Verify OTP
+
 ```dart
 UniAuthService.sendOTP(AuthData());
 UniAuthService.verifyOTP(AuthData());
 ```
 
 #### Login with token
+
 ```dart
 UniAuthService.loginWithToken(token: 'YOUR_TOKEN');
 ```
-
 
 ## Example
 
@@ -91,4 +95,3 @@ Contributions are welcome! If you would like to contribute, please fork the repo
 ## License
 
 UniShipping is available under the [MIT license](LICENSE). See the LICENSE file for more info.
-```
