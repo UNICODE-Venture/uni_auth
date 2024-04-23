@@ -9,3 +9,6 @@
 
 ## 1.0.3
 - Return Full Error Message in Api calls
+
+## 1.0.4
+- ADD Some Comments and file formats
