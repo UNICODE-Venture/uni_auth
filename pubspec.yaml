@@ -1,6 +1,6 @@
 name: uni_auth
 description: "UniAuth is a Flutter package designed to handle authentication modules in Flutter applications. It integrates various authentication services, primarily focusing on Firebase Auth for authentication and Unifonic for sending and verifying OTPs (One-Time Passwords)."
-version: 1.0.2
+version: 1.0.3
 repository: https://github.com/abdallah128128/uni_auth
 
 environment:

@@ -20,7 +20,7 @@ class ServerCalls {
       return result.statusCode.isSuccess ? resultBody['user']['uid'] : '';
     } catch (e) {
       log('Failure ==> : ${e.toString()}');
-      return '';
+      return e.toString();
     }
   }
 
@@ -35,7 +35,7 @@ class ServerCalls {
       return result.statusCode.isSuccess ? resultBody['token'] : '';
     } catch (e) {
       log('Failure ==> : ${e.toString()}');
-      return '';
+      return e.toString();
     }
   }
 }

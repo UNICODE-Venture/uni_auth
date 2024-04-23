@@ -6,3 +6,6 @@
 
 ## 1.0.2
 - ADD Send SMS method and Check Sign in state Wrapper
+
+## 1.0.3
+- Return Full Error Message in Api calls
