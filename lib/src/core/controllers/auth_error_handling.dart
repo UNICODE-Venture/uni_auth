@@ -23,17 +23,21 @@ Map firebaseAuthExceptionErrors = {
   'email-already-in-use': Utils.getMessage(
       en: 'The email address is already in use by another account.',
       ar: 'عنوان البريد الإلكتروني قيد الاستخدام بالفعل من قبل حساب آخر.'),
-  'expired-action-code': Utils.getMessage(en: 'The action code has expired. ', ar: 'انتهت صلاحية رمز العمل. '),
-  'internal-error': Utils.getMessage(en: 'An internal error has occurred.', ar: 'حدث خطأ داخلي.'),
-  'invalid-auth-event': Utils.getMessage(en: 'An internal error has occurred.', ar: 'حدث خطأ داخلي'),
+  'expired-action-code': Utils.getMessage(
+      en: 'The action code has expired. ', ar: 'انتهت صلاحية رمز العمل. '),
+  'internal-error': Utils.getMessage(
+      en: 'An internal error has occurred.', ar: 'حدث خطأ داخلي.'),
+  'invalid-auth-event': Utils.getMessage(
+      en: 'An internal error has occurred.', ar: 'حدث خطأ داخلي'),
   'invalid-verification-code': Utils.getMessage(
       en: 'The SMS verification code used to create the phone auth credential is invalid. Please resend the verification code sms and be sure use the verification code provided by the user.',
       ar: 'رمز التحقق عبر الرسائل القصيرة المستخدم لإنشاء بيانات اعتماد مصادقة الهاتف غير صالح.  يرجى إعادة إرسال رمز التحقق عبر الرسائل القصيرة وتأكد من استخدام رمز التحقق الذي قدمه المستخدم.'),
   'invalid-dynamic-link-domain': Utils.getMessage(
       en: 'The provided dynamic link domain is not configured or authorized for the current project.',
       ar: 'لم يتم تكوين نطاق الارتباط الديناميكي المقدم أو ترخيصه للمشروع الحالي.'),
-  'invalid-email':
-      Utils.getMessage(en: 'The email address is badly formatted.', ar: 'عنوان البريد الإلكتروني منسق بشكل سيء.'),
+  'invalid-email': Utils.getMessage(
+      en: 'The email address is badly formatted.',
+      ar: 'عنوان البريد الإلكتروني منسق بشكل سيء.'),
   'invalid-credential': Utils.getMessage(
     en: 'The supplied auth credential is malformed or has expired.',
     ar: 'بيانات اعتماد المصادقة المقدمة غير صحيحة أو منتهية الصلاحية.',
@@ -71,9 +75,11 @@ Map firebaseAuthExceptionErrors = {
   'network-request-failed': Utils.getMessage(
       en: 'A network error (such as timeout, interrupted connection or unreachable host) has occurred.',
       ar: 'حدث خطأ في الشبكة (مثل انتهاء المهلة أو انقطاع الاتصال أو مضيف لا يمكن الوصول إليه).'),
-  'no-auth-event': Utils.getMessage(en: 'An internal error has occurred.', ar: 'حدث خطأ داخلي.'),
+  'no-auth-event': Utils.getMessage(
+      en: 'An internal error has occurred.', ar: 'حدث خطأ داخلي.'),
   'quota-exceeded': Utils.getMessage(
-      en: "The project's quota for this operation has been exceeded.", ar: 'تم تجاوز حصة المشروع لهذه العملية.'),
+      en: "The project's quota for this operation has been exceeded.",
+      ar: 'تم تجاوز حصة المشروع لهذه العملية.'),
   'user-token-expired': Utils.getMessage(
       en: "The user's credential is no longer valid. The user must sign in again.",
       ar: 'لم تعد بيانات اعتماد المستخدم صالحة.  الرجاء تسجيل الدخول مرة أخرى.'),
@@ -89,8 +95,9 @@ Map firebaseAuthExceptionErrors = {
     en: 'The user account has been disabled by an administrator.',
     ar: 'تم تعطيل حساب المستخدم من قبل المسؤول.',
   ),
-  'weak-password':
-      Utils.getMessage(en: 'The password must be 6 characters long or more.', ar: 'كلمة المرور يجب أن لا تقل عن ٦حروف'),
+  'weak-password': Utils.getMessage(
+      en: 'The password must be 6 characters long or more.',
+      ar: 'كلمة المرور يجب أن لا تقل عن ٦حروف'),
   'INVALID_LOGIN_CREDENTIALS': Utils.getMessage(
     en: 'Invalid login credentials',
     // ar: 'بيانات الدخول غير صحيحة',

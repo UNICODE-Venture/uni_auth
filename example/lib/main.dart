@@ -25,7 +25,8 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.teal,
-          title: const Text('Uni-Auth-Example', style: TextStyle(color: Colors.white)),
+          title: const Text('Uni-Auth-Example',
+              style: TextStyle(color: Colors.white)),
         ),
         body: Padding(
           padding: const EdgeInsets.all(14),

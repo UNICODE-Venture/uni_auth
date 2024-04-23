@@ -8,4 +8,3 @@ class Utils {
     return UniAuth.locale.isArabic ? ar : en;
   }
 }
-

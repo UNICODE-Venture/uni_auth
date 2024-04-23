@@ -10,8 +10,6 @@ class Apis {
 
   static String get baseUrl => _baseUrl ?? '';
 
-
-
   /// Create User endpoint
   static Uri createUser = Uri.parse("$baseUrl/createUser");
 

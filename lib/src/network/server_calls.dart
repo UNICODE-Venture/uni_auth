@@ -14,7 +14,8 @@ class ServerCalls {
         "phone": phoneNumber,
       };
       log('credentialMap : $credentialMap');
-      final result = await http.post(Apis.createUser, body: jsonEncode(credentialMap));
+      final result =
+          await http.post(Apis.createUser, body: jsonEncode(credentialMap));
       final resultBody = jsonDecode(result.body);
       log('resultBody: $resultBody');
       return result.statusCode.isSuccess ? resultBody['user']['uid'] : '';
@@ -29,7 +30,8 @@ class ServerCalls {
     try {
       Map<String, dynamic> credentialMap = {"uid": userId};
       log('credentialMap : $credentialMap');
-      final result = await http.post(Apis.createToken, body: jsonEncode(credentialMap));
+      final result =
+          await http.post(Apis.createToken, body: jsonEncode(credentialMap));
       final resultBody = jsonDecode(result.body);
       log('resultBody: $resultBody');
       return result.statusCode.isSuccess ? resultBody['token'] : '';
