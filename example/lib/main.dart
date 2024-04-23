@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
                 child: const Text('Check If User Logged In'),
               ),
               const SizedBox(height: 10),
-              UniAuthService.checkSignInState(
+              CheckSignInState(
                 holder: const Text('Check If User Logged In Wrapper Builder'),
                 onLoggedIn: () {
                   debugPrint('User Logged In');

@@ -1,7 +1,6 @@
 import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:uni_auth/src/core/controllers/auth_error_handling.dart';
 import 'package:uni_auth/src/core/controllers/unifonic_controller.dart';
 import 'package:uni_auth/src/network/server_calls.dart';
@@ -200,24 +199,6 @@ class UniAuthService {
       log('Failure ==> [FirebaseAuthException] : ${e.code}');
       return false;
     }
-  }
-
-  //* Wrapper method to handle if logged in or not call back
-  static Widget checkSignInState({
-    required Widget holder,
-    required Function() onLoggedIn,
-    required Function() onNotLoggedIn,
-  }) {
-    return Builder(
-      builder: (BuildContext context) {
-        if (checkUserLoggedIn) {
-          onLoggedIn();
-        } else {
-          onNotLoggedIn();
-        }
-        return holder;
-      },
-    );
   }
 
   /// Create User With Phone Number Directly from [Admin_SDK]

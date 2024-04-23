@@ -8,3 +8,6 @@ export 'src/core/models/auth_data.dart';
 
 /// Exporting uni_auth_controller ---------------------
 export 'uni_auth_controller.dart';
+
+/// Exporting Wrappers ---------------------
+export 'src/wrappers/check_sign_in_state.dart';
