@@ -15,4 +15,7 @@ class Apis {
 
   /// Create Token endpoint
   static Uri createToken = Uri.parse("$baseUrl/createToken");
+
+  /// Check If User Exist Or Not
+  static Uri checkUserExist = Uri.parse("$baseUrl/checkUser");
 }

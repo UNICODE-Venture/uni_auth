@@ -15,3 +15,6 @@
 
 ## 1.0.5
 - Update Package Discription
+
+## 1.0.6
+- ADD Check if User Exist or not end point
