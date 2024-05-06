@@ -18,4 +18,7 @@ class Apis {
 
   /// Check If User Exist Or Not
   static Uri checkUserExist = Uri.parse("$baseUrl/checkUser");
+
+  /// Change Password
+  static Uri changePassword = Uri.parse("$baseUrl/changePassword");
 }

@@ -18,3 +18,6 @@
 
 ## 1.0.6
 - ADD Check if User Exist or not end point
+
+## 1.0.7
+- ADD Change Password end point

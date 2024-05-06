@@ -25,7 +25,8 @@ class ServerCalls {
     }
   }
 
-  /// Create [JWT] Token for [User]
+  //-----------------------------------------------------------------------------------
+  /// Create [JWT] Token for [User] from [Admin_SDK]
   static Future<String> createToken({String? userId}) async {
     try {
       Map<String, dynamic> credentialMap = {"uid": userId};
@@ -40,7 +41,8 @@ class ServerCalls {
     }
   }
 
-  ///* Check If User Exist
+  //-----------------------------------------------------------------------------------
+  ///* Check If User Exist - [Admin_SDK]
   static Future<CheckIfUserExistRes> checkIfUserExist({
     String? email,
     String? phoneNumber,
@@ -64,4 +66,29 @@ class ServerCalls {
       return CheckIfUserExistRes();
     }
   }
+
+  //-----------------------------------------------------------------------------------
+  ///* Change Password - [Admin_SDK]
+  static Future<bool> changePassword({
+    String? uId,
+    String? password,
+  }) async {
+    try {
+      Map<String, dynamic> credentialMap = {
+        "uid": uId,
+        "password": password,
+      };
+      log('Change Password Inputs : $credentialMap');
+      final result = await http.post(Apis.changePassword, body: jsonEncode(credentialMap));
+      final resultBody = jsonDecode(result.body);
+      log('Change Password Result : $resultBody');
+      // CheckIfUserExistRes res = CheckIfUserExistRes.fromJson(resultBody);
+      // res.isExist = res.uid?.isNotEmpty ?? false;
+      return result.statusCode.isSuccess;
+    } catch (e) {
+      log('Failure ==> [Change Password] : ${e.toString()}');
+      return false;
+    }
+  }
+  //-----------------------------------------------------------------------------------
 }
