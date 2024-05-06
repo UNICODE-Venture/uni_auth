@@ -27,3 +27,6 @@
 
 ## 1.0.9
 - ADD check_user_exist_res model file to exports
+
+## 1.0.10
+- ADD user auth calls response

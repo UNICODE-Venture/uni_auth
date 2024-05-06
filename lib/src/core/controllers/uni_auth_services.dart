@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:uni_auth/src/core/controllers/auth_error_handling.dart';
 import 'package:uni_auth/src/core/controllers/unifonic_controller.dart';
 import 'package:uni_auth/src/core/models/check_user_exist_res.dart';
+import 'package:uni_auth/src/core/models/user_auth_calls_res.dart';
 import 'package:uni_auth/src/network/server_calls.dart';
 import 'package:uni_auth/uni_auth.dart';
 
@@ -203,7 +204,7 @@ class UniAuthService {
   }
 
   /// Create User With Phone Number Directly from [Admin_SDK]
-  static Future<String> createUser({String? phoneNumber}) async {
+  static Future<UserAuthCallsResponse?> createUser({String? phoneNumber}) async {
     return ServerCalls.createUser(phoneNumber: phoneNumber);
   }
 
@@ -226,7 +227,7 @@ class UniAuthService {
   }
 
   /// Change Password - [Admin_SDK]
-  static Future<bool> changePassword({required String uId, required String newPassword}) async {
+  static Future<UserAuthCallsResponse?> changePassword({required String uId, required String newPassword}) async {
     return ServerCalls.changePassword(uId: uId, password: newPassword);
   }
 }
