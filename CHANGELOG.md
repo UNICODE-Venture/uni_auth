@@ -24,3 +24,6 @@
 
 ## 1.0.8
 - Edit UniAuth Services and add methods to it
+
+## 1.0.9
+- ADD check_user_exist_res model file to exports
