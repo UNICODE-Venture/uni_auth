@@ -70,8 +70,8 @@ class ServerCalls {
   //-----------------------------------------------------------------------------------
   ///* Change Password - [Admin_SDK]
   static Future<bool> changePassword({
-    String? uId,
-    String? password,
+    required String uId,
+    required String password,
   }) async {
     try {
       Map<String, dynamic> credentialMap = {

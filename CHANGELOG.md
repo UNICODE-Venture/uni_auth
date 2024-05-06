@@ -21,3 +21,6 @@
 
 ## 1.0.7
 - ADD Change Password end point
+
+## 1.0.8
+- Edit UniAuth Services and add methods to it
