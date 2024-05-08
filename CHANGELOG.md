@@ -30,3 +30,6 @@
 
 ## 1.0.10
 - ADD user auth calls response
+
+## 1.0.11
+- update environment SDK
