@@ -142,6 +142,8 @@ class UniAuthService {
       authResult.user = userCredential.user;
       return authResult;
     } on FirebaseAuthException catch (e) {
+      log(e.code);
+      log(e.message ?? 'No message');
       switch (e.code) {
         case "invalid-custom-token":
           log("The supplied token is not a Firebase custom auth token.");
