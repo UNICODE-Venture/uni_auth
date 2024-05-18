@@ -36,3 +36,6 @@
 
 ## 1.0.12
 - ADD Some Logs
+
+## 1.0.13
+- ADD Send email OTP and Verify OTP methods
