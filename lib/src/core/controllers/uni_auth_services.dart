@@ -2,9 +2,7 @@ import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:uni_auth/src/core/controllers/auth_error_handling.dart';
-import 'package:uni_auth/src/core/controllers/unifonic_controller.dart';
-import 'package:uni_auth/src/core/models/check_user_exist_res.dart';
-import 'package:uni_auth/src/core/models/user_auth_calls_res.dart';
+import 'package:uni_auth/src/core/controllers/email_controller.dart';
 import 'package:uni_auth/src/network/server_calls.dart';
 import 'package:uni_auth/uni_auth.dart';
 
@@ -20,7 +18,8 @@ class UniAuthService {
   static String get getUserID => _auth.currentUser?.uid ?? '';
 
   ///* Check user logged or not `bool`
-  static bool get checkUserLoggedIn => _auth.currentUser != null && getUserID.isNotEmpty;
+  static bool get checkUserLoggedIn =>
+      _auth.currentUser != null && getUserID.isNotEmpty;
 
   ///* Get currently logged in user
   static User get currentUser => _auth.currentUser!;
@@ -31,7 +30,8 @@ class UniAuthService {
   }) async {
     AuthData authResult = authData;
     try {
-      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+      UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
         email: authData.email,
         password: authData.password,
       );
@@ -47,7 +47,8 @@ class UniAuthService {
       log('Failure ==> [FirebaseAuthException] : ${e.code}');
       authResult.isSuccess = false;
       authResult.errorCode = e.code;
-      authResult.errorMessage = firebaseAuthExceptionErrors[e.code] ?? 'Something went wrong';
+      authResult.errorMessage =
+          firebaseAuthExceptionErrors[e.code] ?? 'Something went wrong';
       return authResult;
     }
   }
@@ -60,7 +61,8 @@ class UniAuthService {
     AuthData authResult = authData;
     try {
       log('credential ${credential.accessToken}');
-      final linkResult = await _auth.currentUser!.linkWithCredential(credential);
+      final linkResult =
+          await _auth.currentUser!.linkWithCredential(credential);
       if (linkResult.user != null) {
         authResult.isSuccess = true;
         authResult.user = linkResult.user;
@@ -72,7 +74,8 @@ class UniAuthService {
       log('Failure linkWithCredential ==> [FirebaseAuthException] : ${e.code}');
       authResult.isSuccess = false;
       authResult.errorCode = e.code;
-      authResult.errorMessage = firebaseAuthExceptionErrors[e.code] ?? 'Something went wrong';
+      authResult.errorMessage =
+          firebaseAuthExceptionErrors[e.code] ?? 'Something went wrong';
       return authResult;
     } catch (e) {
       log('Failure linkWithCredential ==> [Exception] : ${e.toString()}');
@@ -84,10 +87,12 @@ class UniAuthService {
   }
 
   ///* Sign In With Credential
-  static Future<AuthData> signInWithCredential(AuthCredential credential) async {
+  static Future<AuthData> signInWithCredential(
+      AuthCredential credential) async {
     AuthData authResult = AuthData();
     try {
-      UserCredential? userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
+      UserCredential? userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
       if (userCredential.user != null) {
         authResult.isSuccess = true;
         authResult.user = userCredential.user;
@@ -99,7 +104,8 @@ class UniAuthService {
       log('Failure ==> [FirebaseAuthException] : ${e.toString()}');
       authResult.isSuccess = false;
       authResult.errorCode = e.toString();
-      authResult.errorMessage = firebaseAuthExceptionErrors[e.toString()] ?? 'Something went wrong';
+      authResult.errorMessage =
+          firebaseAuthExceptionErrors[e.toString()] ?? 'Something went wrong';
       return authResult;
     }
   }
@@ -126,7 +132,8 @@ class UniAuthService {
       log('Failure ==> [FirebaseAuthException] : ${e.code}');
       authResult.isSuccess = false;
       authResult.errorCode = e.code;
-      authResult.errorMessage = firebaseAuthExceptionErrors[e.code] ?? 'Something went wrong';
+      authResult.errorMessage =
+          firebaseAuthExceptionErrors[e.code] ?? 'Something went wrong';
       return authResult;
     }
   }
@@ -137,7 +144,8 @@ class UniAuthService {
   }) async {
     AuthData authResult = AuthData();
     try {
-      final userCredential = await FirebaseAuth.instance.signInWithCustomToken(token);
+      final userCredential =
+          await FirebaseAuth.instance.signInWithCustomToken(token);
       authResult.isSuccess = userCredential.user != null;
       authResult.user = userCredential.user;
       return authResult;
@@ -156,19 +164,20 @@ class UniAuthService {
       }
       authResult.isSuccess = false;
       authResult.errorCode = e.code;
-      authResult.errorMessage = firebaseAuthExceptionErrors[e.code] ?? 'Something went wrong';
+      authResult.errorMessage =
+          firebaseAuthExceptionErrors[e.code] ?? 'Something went wrong';
       return authResult;
     }
   }
 
-  ///* PHONE SEND OTP throw [Unifonic]
-  static Future<AuthData> sendOTP(AuthData authFields) async {
-    return UnifonicController.sendOTP(authFields);
+  ///* Email SEND OTP
+  static Future<AuthData> sendEmailOTP(AuthData authFields) async {
+    return EmailController.sendEmailOTP(authFields);
   }
 
-  ///* Verify OTP throw [Unifonic]
-  static Future<AuthData> verifyOTP(AuthData result) async {
-    return UnifonicController.verifyOTP(result);
+  ///* Verify OTP
+  static Future<AuthData> verifyOTP(AuthData authFields) async {
+    return EmailController.verifyOTP(authFields);
   }
 
   ///* User Forget Password
@@ -186,7 +195,8 @@ class UniAuthService {
       log('Failure ==> [FirebaseAuthException] : ${e.code}');
       authResult.isSuccess = false;
       authResult.errorCode = e.code;
-      authResult.errorMessage = firebaseAuthExceptionErrors[e.code] ?? 'Something went wrong';
+      authResult.errorMessage =
+          firebaseAuthExceptionErrors[e.code] ?? 'Something went wrong';
       return authResult;
     }
   }
@@ -206,7 +216,8 @@ class UniAuthService {
   }
 
   /// Create User With Phone Number Directly from [Admin_SDK]
-  static Future<UserAuthCallsResponse?> createUser({String? phoneNumber}) async {
+  static Future<UserAuthCallsResponse?> createUser(
+      {String? phoneNumber}) async {
     return ServerCalls.createUser(phoneNumber: phoneNumber);
   }
 
@@ -229,7 +240,8 @@ class UniAuthService {
   }
 
   /// Change Password - [Admin_SDK]
-  static Future<UserAuthCallsResponse?> changePassword({required String uId, required String newPassword}) async {
+  static Future<UserAuthCallsResponse?> changePassword(
+      {required String uId, required String newPassword}) async {
     return ServerCalls.changePassword(uId: uId, password: newPassword);
   }
 }

@@ -21,4 +21,10 @@ class Apis {
 
   /// Change Password
   static Uri changePassword = Uri.parse("$baseUrl/changePassword");
+
+  /// Send Email OTP endpoint
+  static Uri sendEmailOTP = Uri.parse("$baseUrl/send-email");
+
+  /// Verify OTP endpoint
+  static Uri verifyOTP = Uri.parse("$baseUrl/otp-verify");
 }
