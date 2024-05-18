@@ -10,13 +10,15 @@ class ServerCalls {
   ServerCalls._();
 
   /// Create User With Phone Number Directly from [Admin_SDK]
-  static Future<UserAuthCallsResponse?> createUser({String? phoneNumber}) async {
+  static Future<UserAuthCallsResponse?> createUser(
+      {String? phoneNumber}) async {
     try {
       Map<String, dynamic> credentialMap = {
         "phone": phoneNumber,
       };
       log('credentialMap : $credentialMap');
-      final result = await http.post(Apis.createUser, body: jsonEncode(credentialMap));
+      final result =
+          await http.post(Apis.createUser, body: jsonEncode(credentialMap));
       final resultBody = jsonDecode(result.body);
       log('resultBody: $resultBody');
       UserAuthCallsResponse res = UserAuthCallsResponse.fromJson(resultBody);
@@ -24,7 +26,7 @@ class ServerCalls {
       return result.statusCode.isSuccess ? res : null;
     } catch (e) {
       log('Failure ==> : ${e.toString()}');
-       return UserAuthCallsResponse(isSuccess: false, errorMsg: e.toString());
+      return UserAuthCallsResponse(isSuccess: false, errorMsg: e.toString());
     }
   }
 
@@ -34,7 +36,8 @@ class ServerCalls {
     try {
       Map<String, dynamic> credentialMap = {"uid": userId};
       log('credentialMap : $credentialMap');
-      final result = await http.post(Apis.createToken, body: jsonEncode(credentialMap));
+      final result =
+          await http.post(Apis.createToken, body: jsonEncode(credentialMap));
       final resultBody = jsonDecode(result.body);
       log('resultBody: $resultBody');
       return result.statusCode.isSuccess ? resultBody['token'] : '';
@@ -58,7 +61,8 @@ class ServerCalls {
         "userIdentifier": userIdentifier,
       };
       log('Check User Exist Inputs : $credentialMap');
-      final result = await http.post(Apis.checkUserExist, body: jsonEncode(credentialMap));
+      final result =
+          await http.post(Apis.checkUserExist, body: jsonEncode(credentialMap));
       final resultBody = jsonDecode(result.body);
       log('Check User Exist : $resultBody');
       CheckIfUserExistRes res = CheckIfUserExistRes.fromJson(resultBody);
@@ -82,7 +86,8 @@ class ServerCalls {
         "password": password,
       };
       log('Change Password Inputs : $credentialMap');
-      final result = await http.post(Apis.changePassword, body: jsonEncode(credentialMap));
+      final result =
+          await http.post(Apis.changePassword, body: jsonEncode(credentialMap));
       final resultBody = jsonDecode(result.body);
       log('Change Password Result : $resultBody');
       UserAuthCallsResponse res = UserAuthCallsResponse.fromJson(resultBody);
