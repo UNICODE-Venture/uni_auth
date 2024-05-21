@@ -59,4 +59,4 @@
 - Added the missing methods for sending the OTP through SMS
 
 ## 1.0.15
-- Updated send email OTP and verify email OTP end point
+- Updated send email OTP and verify email OTP response model
