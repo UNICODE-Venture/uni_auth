@@ -39,3 +39,6 @@
 
 ## 1.0.13
 - ADD Send email OTP and Verify OTP methods
+
+## 1.0.14
+- Bug fixed
