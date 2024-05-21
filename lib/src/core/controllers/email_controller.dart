@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:uni_auth/src/core/models/email_otp_response.dart';
 import 'package:uni_auth/src/core/models/email_template.dart';
 import 'package:uni_auth/src/extention/ui_extentions.dart';
 import 'package:uni_auth/src/network/apis.dart';
@@ -10,7 +11,8 @@ class EmailController {
   EmailController._();
 
   ///* Email SEND OTP
-  static Future<AuthData> sendEmailOTP(AuthData authFields) async {
+  static Future<EmailOtpResponse> sendEmailOTP(AuthData authFields) async {
+    EmailOtpResponse response = EmailOtpResponse();
     try {
       EmailTemplate emailTemplate = EmailTemplate(email: authFields.email);
       debugPrint('credentialMap : ${emailTemplate.toMapSendEmail()}');
@@ -18,21 +20,20 @@ class EmailController {
           body: emailTemplate.toJsonSendEmail());
       final resultBody = jsonDecode(result.body);
       debugPrint('resultBody: $resultBody');
-      authFields.isSuccess = result.statusCode.isSuccess;
-      if (!result.statusCode.isSuccess) {
-        authFields.errorMessage = resultBody['message'];
-      }
-      return authFields;
+      response = EmailOtpResponse.fromJson(resultBody);
+      response.isSuccess = result.statusCode.isSuccess;
+      return response;
     } catch (e) {
       debugPrint('Failure ==> : ${e.toString()}');
-      authFields.isSuccess = false;
-      authFields.errorMessage = e.toString();
-      return authFields;
+      response.error = e.toString();
+      response.message = e.toString();
+      return response;
     }
   }
 
   ///* Verify OTP
-  static Future<AuthData> verifyOTP(AuthData authFields) async {
+  static Future<EmailOtpResponse> verifyOTP(AuthData authFields) async {
+    EmailOtpResponse response = EmailOtpResponse();
     try {
       EmailTemplate emailTemplate =
           EmailTemplate(email: authFields.email, otp: authFields.otp);
@@ -41,16 +42,15 @@ class EmailController {
           await http.post(Apis.verifyOTP, body: emailTemplate.toJson());
       final resultBody = jsonDecode(result.body);
       debugPrint('resultBody: $resultBody');
-      authFields.isSuccess = result.statusCode.isSuccess;
-      if (!result.statusCode.isSuccess) {
-        authFields.errorMessage = resultBody['message'];
-      }
-      return authFields;
+      response = EmailOtpResponse.fromJson(resultBody);
+      response.isSuccess = result.statusCode.isSuccess;
+
+      return response;
     } catch (e) {
       debugPrint('Failure ==> : ${e.toString()}');
-      authFields.isSuccess = false;
-      authFields.errorMessage = e.toString();
-      return authFields;
+      response.error = e.toString();
+      response.message = e.toString();
+      return response;
     }
   }
 }
