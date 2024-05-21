@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:uni_auth/src/core/controllers/auth_error_handling.dart';
 import 'package:uni_auth/src/core/controllers/email_controller.dart';
+import 'package:uni_auth/src/core/controllers/unifonic_controller.dart';
 import 'package:uni_auth/src/network/server_calls.dart';
 import 'package:uni_auth/uni_auth.dart';
 
@@ -170,13 +171,23 @@ class UniAuthService {
     }
   }
 
+  ///* Send the `OTP` through `SMS`
+  static Future<AuthData> sendOTP(AuthData authFields) async {
+    return UnifonicController.sendOTP(authFields);
+  }
+
+  ///* Verify the `OTP` sent by `SMS`
+  static Future<AuthData> verifyOTP(AuthData authFields) async {
+    return UnifonicController.verifyOTP(authFields);
+  }
+
   ///* Email SEND OTP
   static Future<AuthData> sendEmailOTP(AuthData authFields) async {
     return EmailController.sendEmailOTP(authFields);
   }
 
-  ///* Verify OTP
-  static Future<AuthData> verifyOTP(AuthData authFields) async {
+  ///* Verify OTP sent by Email
+  static Future<AuthData> verifyEmailOTP(AuthData authFields) async {
     return EmailController.verifyOTP(authFields);
   }
 
