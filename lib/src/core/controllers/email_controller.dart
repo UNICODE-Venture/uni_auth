@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:uni_auth/src/core/models/email_otp_response.dart';
 import 'package:uni_auth/src/core/models/email_template.dart';
 import 'package:uni_auth/src/extention/ui_extentions.dart';
 import 'package:uni_auth/src/network/apis.dart';
