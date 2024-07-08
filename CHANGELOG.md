@@ -1,3 +1,7 @@
+## 1.0.18
+
+- Change End-Points For Server Calls
+
 ## 1.0.17
 
 - Add Firebase sendOtp and verifyOtp

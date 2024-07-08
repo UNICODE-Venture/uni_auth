@@ -279,19 +279,31 @@ class UniAuthService {
 
   /// Check If User Exist - from [Admin_SDK]
   static Future<CheckIfUserExistRes> checkIfUserExist({
+    String? uid,
     String? email,
     String? phoneNumber,
     String? userIdentifier,
   }) async {
     return ServerCalls.checkIfUserExist(
+      uid: uid,
       email: email,
       phoneNumber: phoneNumber,
       userIdentifier: userIdentifier,
     );
   }
 
-  /// Change Password - [Admin_SDK]
-  static Future<UserAuthCallsResponse?> changePassword({required String uId, required String newPassword}) async {
-    return ServerCalls.changePassword(uId: uId, password: newPassword);
+  /// Update Auth User - [Admin_SDK]
+  static Future<UserAuthCallsResponse?> updateAuthUser({
+    required String uId,
+    String? newPhone,
+    String? newEmail,
+    String? newPassword,
+  }) async {
+    return ServerCalls.updateAuthUser(
+      uId: uId,
+      phoneNumber: newPhone,
+      email: newEmail,
+      password: newPassword,
+    );
   }
 }

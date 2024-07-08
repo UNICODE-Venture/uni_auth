@@ -10,17 +10,8 @@ class Apis {
 
   static String get baseUrl => _baseUrl ?? '';
 
-  /// Create User endpoint
-  static Uri createUser = Uri.parse("$baseUrl/createUser");
-
-  /// Create Token endpoint
-  static Uri createToken = Uri.parse("$baseUrl/createToken");
-
-  /// Check If User Exist Or Not
-  static Uri checkUserExist = Uri.parse("$baseUrl/checkUser");
-
-  /// Change Password
-  static Uri changePassword = Uri.parse("$baseUrl/changePassword");
+  /// Auth User End-Point
+  static String authUser = "$baseUrl/auth/user";
 
   /// Send Email OTP endpoint
   static Uri sendEmailOTP = Uri.parse("$baseUrl/sendEmail");
