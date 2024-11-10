@@ -13,9 +13,12 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.6
-  #* firebase
-  firebase_core: ^2.30.0
-  firebase_auth: ^4.19.2
+  #* Firebase
+  # Flutter plugin for Firebase Core, enabling connecting to multiple Firebase apps.
+  firebase_core: ^3.7.0
+
+  # Flutter plugin for Firebase Auth, enabling authentication using passwords, phone numbers and identity providers like Google, Facebook and Twitter.
+  firebase_auth: ^5.3.2
 
   #* uni_auth
   uni_auth:

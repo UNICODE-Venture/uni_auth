@@ -1,3 +1,7 @@
+## 1.0.19
+
+- Update Firebase Core and Firebase auth dependencies
+
 ## 1.0.18
 
 - Change End-Points For Server Calls
