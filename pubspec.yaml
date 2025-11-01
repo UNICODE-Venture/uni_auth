@@ -1,11 +1,11 @@
 name: uni_auth
 description: "UniAuth is a Flutter package designed to handle authentication modules in Flutter applications."
 
-version: 1.0.19
+version: 2.0.0
 repository: https://github.com/UNICODE-Venture/uni_auth
 
 environment:
-  sdk: ">=2.18.0 <4.0.0"
+  sdk: ">=3.3.2 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
@@ -17,10 +17,10 @@ dependencies:
 
   #* Firebase
   # Flutter plugin for Firebase Core, enabling connecting to multiple Firebase apps.
-  firebase_core: ^3.7.0
+  firebase_core: ^4.2.0
 
   # Flutter plugin for Firebase Auth, enabling authentication using passwords, phone numbers and identity providers like Google, Facebook and Twitter.
-  firebase_auth: ^5.3.2
+  firebase_auth: ^6.1.1
 
 dev_dependencies:
   flutter_test:

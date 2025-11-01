@@ -1,3 +1,7 @@
+## 2.0.0
+
+- Update Firebase Core and Firebase auth dependencies
+
 ## 1.0.19
 
 - Update Firebase Core and Firebase auth dependencies
